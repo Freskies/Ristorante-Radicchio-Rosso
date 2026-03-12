@@ -16,7 +16,7 @@ export default function Hero () {
 		</div>
 
 		<div className="container relative z-10 px-4 text-center text-white">
-			<h1 className="text-4xl md:text-7xl font-bold mb-4 tracking-tight inline-block text-left">
+			<h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight inline-block text-left">
 				<span className="text-accent">R</span>istorante<br/><span className="inline-block ml-16"><span
 				className="text-accent">R</span>adicchio</span><br/><span className="inline-block ml-8"><span
 				className="text-accent">R</span>osso</span>
@@ -37,7 +37,7 @@ export default function Hero () {
 				</p>
 			</div>
 
-			<div className="mt-8 md:mt-12">
+			<div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
 				<a
 					href="#menu"
 					className="inline-block bg-white text-accent px-8 py-3 rounded-full font-bold uppercase
@@ -45,7 +45,15 @@ export default function Hero () {
 				>
 					Scopri il Menù
 				</a>
+				<a
+					href="#info"
+					className="inline-block bg-white text-accent px-8 py-3 rounded-full font-bold uppercase
+					transition-all hover:bg-zinc-200 active:scale-95 shadow-lg"
+				>
+					Prenota Ora
+				</a>
 			</div>
+
 		</div>
 
 		<div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
