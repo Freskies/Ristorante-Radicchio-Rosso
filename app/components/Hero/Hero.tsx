@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
 export default function Hero () {
-	// noinspection HtmlUnknownAnchorTarget
+	// noinspection HtmlUnknownAnchorTarget,LongLine
 	return <section
-		className="relative min-h-150 h-screen w-full flex items-center justify-center overflow-hidden pt-20">
+		className="relative min-h-125 sm:min-h-150 h-dvh w-full flex items-center justify-center overflow-hidden pt-12 sm:pt-20">
 		{/* Background Image/Promotion */}
 		<div className="absolute inset-0 z-0">
 			<Image
