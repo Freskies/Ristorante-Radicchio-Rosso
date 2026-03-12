@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Radicchio Rosso Website
+
+This is a one-page website for the **Radicchio Rosso** Restaurant & Pizzeria in Ravenna.
+
+## Project Overview
+
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS 4
+- **Language**: English (Development files, README), Italian (Client-facing content)
+- **Design**: Mobile-first, Responsive
+
+## Features
+
+- **Single Page Application**: Smooth scrolling between sections.
+- **Hero Section**: Promotional area with background image.
+- **Menu**: Grid display of the restaurant's menu images.
+- **Gallery**: Mosaic-style gallery of the restaurant and its dishes.
+- **About Section**: Detailed history and description of the restaurant.
+- **Info & Timetables**: 
+    - Real-time contact information.
+    - Dynamic timetable displaying today's hours prominently.
+    - 8-hour revalidation logic for timetable data (simulated).
+    - Interactive Google Maps integration.
+- **SEO Optimized**: Semantic HTML, proper metadata (title, description, keywords, OpenGraph).
+- **Social Integration**: Icons and links to Facebook, Instagram, and TripAdvisor.
+
+## Project Structure
+
+```text
+app/
+  components/
+    About/      - "Chi siamo" section
+    Footer/     - Footer with social links and copyright
+    Gallery/    - Image gallery mosaic
+    Header/     - Sticky navigation and logo
+    Hero/       - Promotional top section
+    Info/       - Contacts, Map, and Timetable logic
+    Menu/       - Menu images display
+    UI/         - Shared UI components
+  layout.tsx    - Root layout with SEO metadata
+  page.tsx      - Main entry point (one-page structure)
+public/
+  gallery/      - Restaurant photos
+  menu/         - Menu images
+  radicchio-rosso-logo.png - Main logo
+```
 
 ## Getting Started
 
-First, run the development server:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Build for production:
+   ```bash
+   npm run build
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Author
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Design by: Giacchini Valerio
+- Developed for: Radicchio Rosso Restaurant
