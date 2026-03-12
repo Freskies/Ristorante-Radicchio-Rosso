@@ -21,21 +21,21 @@ export default function Hero () {
 				className="text-accent">R</span>adicchio</span><br/><span className="inline-block ml-8"><span
 				className="text-accent">R</span>osso</span>
 			</h1>
-			<p className="text-xl md:text-2xl mb-8 font-light italic">
+			<p className="text-xl md:text-2xl mb-8 font-light italic text-balance px-5">
 				Tradizione e Innovazione tra mare e campagna
 			</p>
 
 			{/*Promotional Box / Special Content Area */}
-			<div
-				className="bg-accent/80 backdrop-blur-md p-4 md:p-6 rounded-lg max-w-2xl mx-auto border
-				border-accent/50 shadow-2xl text-left">
-				<h2 className="text-xl md:text-2xl font-bold mb-2 uppercase tracking-widest">In Evidenza</h2>
-				<p className="text-base md:text-lg">
-					Dal 2022, l&apos;unico ristorante a Ravenna a proporre la <span
-					className="font-bold underline">Scrocchiarella</span>:
-					innovativa, croccante e altamente digeribile.
-				</p>
-			</div>
+			{/*<div*/}
+			{/*	className="bg-accent/80 backdrop-blur-md p-4 md:p-6 rounded-lg max-w-2xl mx-auto border*/}
+			{/*	border-accent/50 shadow-2xl text-left">*/}
+			{/*	<h2 className="text-xl md:text-2xl font-bold mb-2 uppercase tracking-widest">In Evidenza</h2>*/}
+			{/*	<p className="text-base md:text-lg">*/}
+			{/*		Dal 2022, l&apos;unico ristorante a Ravenna a proporre la <span*/}
+			{/*		className="font-bold underline">Scrocchiarella</span>:*/}
+			{/*		innovativa, croccante e altamente digeribile.*/}
+			{/*	</p>*/}
+			{/*</div>*/}
 
 			<div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
 				<a
