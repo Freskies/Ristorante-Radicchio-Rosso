@@ -15,13 +15,14 @@ export default function Header () {
 	return <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
 		<div className="container mx-auto px-4 h-20 flex items-center justify-between">
 			<Link href="/" className="flex items-center">
-				<Image
-					src="/radicchio-rosso-logo.png"
-					alt="Radicchio Rosso Logo"
-					width={logo_size}
-					height={logo_size}
-					className="w-12 md:w-16 h-auto"
-				/>
+					<Image
+						src="/radicchio-rosso-logo.png"
+						alt="Radicchio Rosso Logo"
+						width={logo_size}
+						height={logo_size}
+						className="w-12 md:w-16 h-auto"
+						style={{ height: 'auto' }}
+					/>
 				<span className="ml-2 text-xl font-bold text-accent hidden sm:block">Radicchio Rosso</span>
 			</Link>
 

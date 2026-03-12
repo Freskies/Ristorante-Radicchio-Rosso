@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://radicchiorosso.it"),
 	title: "Ristorante Radicchio Rosso - Ravenna",
 	description: "Ristorante Pizzeria Radicchio Rosso a Ravenna. Cucina tradizionale romagnola, pizza al forno a legna e la speciale scrocchiarella. Da 40 anni passione e qualità.",
 	keywords: ["ristorante ravenna", "pizzeria ravenna", "cucina romagnola", "scrocchiarella ravenna", "radicchio rosso ravenna"],
@@ -38,13 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout ({ children, }: Readonly<{ children: React.ReactNode; }>) {
 	return <html lang="it">
-	<body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}>
-	{/* Pre-fetching menu images */}
-	<link rel="preload" href="/menu/menu1.jpg" as="image"/>
-	<link rel="preload" href="/menu/menu2.jpg" as="image"/>
-	<link rel="preload" href="/menu/menu3.jpg" as="image"/>
-	<link rel="preload" href="/menu/menu4.jpg" as="image"/>
-	<link rel="preload" href="/menu/menu5.jpg" as="image"/>
+	<body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`} suppressHydrationWarning>
 	{children}
 	</body>
 	</html>;

@@ -12,20 +12,19 @@ const DAYS_IT = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'V
 export async function getTimetables (): Promise<Timetable[]> {
 	// Base timetables
 	const baseHours = [
-		{ day: 'Lunedì', hours: '12:00–14:30, 18:30–22:30' },
-		{ day: 'Martedì', hours: '12:00–14:30, 18:30–22:30' },
-		{ day: 'Mercoledì', hours: 'Chiuso' },
-		{ day: 'Giovedì', hours: '12:00–14:30, 18:30–22:30' },
-		{ day: 'Venerdì', hours: '12:00–14:30, 18:30–22:30' },
-		{ day: 'Sabato', hours: '12:00–14:30, 18:30–23:00' },
-		{ day: 'Domenica', hours: '12:00–14:30, 18:30–23:00' },
+		{ day: 'Lunedì', hours: '12:00–14:30, 19:00–22:30' },
+		{ day: 'Martedì', hours: '12:00–14:30, 19:00–22:30' },
+		{ day: 'Mercoledì', hours: '19:00–22:30' },
+		{ day: 'Giovedì', hours: '12:00–14:30, 19:00–22:30' },
+		{ day: 'Venerdì', hours: '12:00–14:30, 19:00–22:30' },
+		{ day: 'Sabato', hours: '12:00–14:30, 19:00–23:00' },
+		{ day: 'Domenica', hours: '12:00–14:30, 19:00–22:30' },
 	];
 
-	const todayIndex = new Date().getDay(); // 0 is Sunday
-	const todayName = DAYS_IT[todayIndex];
+	const todayIndex = new Date().getDay();
 
 	return baseHours.map(h => ({
 		...h,
-		isToday: h.day === todayName,
+		isToday: todayIndex === DAYS_IT.indexOf(h.day),
 	}));
 }

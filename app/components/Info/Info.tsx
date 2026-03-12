@@ -39,16 +39,16 @@ export default async function Info () {
 							<p>
 								<span className="font-semibold">Tel:</span>{" "}
 								<a href={`tel:${telephone.replace(/\s/g, '')}`}
-								   className="hover:text-accent">{telephone}</a>
+								   className="hover:text-accent underline">{telephone}</a>
 							</p>
 							<p>
 								<span className="font-semibold">Cell:</span>{" "}
 								<a href={`tel:${mobilePhone.replace(/\s/g, '')}`}
-								   className="hover:text-accent">{mobilePhone}</a>
+								   className="hover:text-accent underline">{mobilePhone}</a>
 							</p>
 							<p>
 								<span className="font-semibold">Email:</span>{" "}
-								<a href={`mailto:${email}`} className="hover:text-accent">{email}</a>
+								<a href={`mailto:${email}`} className="hover:text-accent underline">{email}</a>
 							</p>
 							<p>
 								<span className="font-semibold">Dove:</span>{" "}

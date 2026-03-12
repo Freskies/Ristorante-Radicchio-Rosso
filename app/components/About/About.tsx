@@ -7,7 +7,7 @@ export default function About () {
 	return <section id="chi-siamo" className="py-24 bg-zinc-900 text-white overflow-hidden">
 		<div className="container mx-auto px-4">
 			<div className="flex flex-col lg:flex-row items-center gap-16">
-				<div className="lg:w-1/2 relative">
+				<div className="lg:w-1/2 relative hidden lg:block">
 					<div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-8 border-zinc-800">
 						<Image
 							src="/gallery/34.jpg"
@@ -15,6 +15,7 @@ export default function About () {
 							width={hero_width}
 							height={hero_height}
 							className="w-full h-auto object-cover"
+							style={{ height: 'auto' }}
 						/>
 					</div>
 					{/* Decorative element */}

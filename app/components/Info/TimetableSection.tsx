@@ -4,7 +4,7 @@ import { Timetable } from './timetable';
 
 export default function TimetableSection ({ timetables }: { timetables: Timetable[] }) {
 	const [isOpen, setIsOpen] = useState(false);
-	const today = timetables.find(t => t.isToday);
+	const currentTimetables = timetables;
 
 	return <div className="bg-white p-8 rounded-2xl shadow-md">
 		<h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -18,8 +18,8 @@ export default function TimetableSection ({ timetables }: { timetables: Timetabl
 		{/* Today highlighted */}
 		<div className="bg-accent/5 p-4 rounded-xl border border-accent/10 mb-6">
 			<p className="text-accent font-bold flex justify-between">
-				<span>Oggi ({today?.day}):</span>
-				<span>{today?.hours}</span>
+				<span>Oggi ({currentTimetables.find(t => t.isToday)?.day}):</span>
+				<span>{currentTimetables.find(t => t.isToday)?.hours}</span>
 			</p>
 		</div>
 
@@ -45,7 +45,7 @@ export default function TimetableSection ({ timetables }: { timetables: Timetabl
 				className={`grid transition-all duration-300 ease-in-out
 				${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}>
 				<div className="min-h-0 overflow-hidden space-y-2 text-zinc-600">
-					{timetables.map((t) => (
+					{currentTimetables.map((t) => (
 						<p key={t.day}
 						   className={`flex justify-between ${t.isToday ? 'font-bold text-accent' : ''}`}>
 							<span>{t.day}</span>

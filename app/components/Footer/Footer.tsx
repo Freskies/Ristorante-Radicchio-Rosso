@@ -52,6 +52,7 @@ export default function Footer () {
 							width={logo_size}
 							height={logo_size}
 							className="relative z-10"
+							style={{ height: 'auto' }}
 						/>
 					</div>
 					<div>
