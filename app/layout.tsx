@@ -39,6 +39,12 @@ export const metadata: Metadata = {
 export default function RootLayout ({ children, }: Readonly<{ children: React.ReactNode; }>) {
 	return <html lang="it">
 	<body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}>
+	{/* Pre-fetching menu images */}
+	<link rel="preload" href="/menu/menu1.jpg" as="image"/>
+	<link rel="preload" href="/menu/menu2.jpg" as="image"/>
+	<link rel="preload" href="/menu/menu3.jpg" as="image"/>
+	<link rel="preload" href="/menu/menu4.jpg" as="image"/>
+	<link rel="preload" href="/menu/menu5.jpg" as="image"/>
 	{children}
 	</body>
 	</html>;

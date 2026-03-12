@@ -27,6 +27,7 @@ export default function MenuCarousel ({ images }: { images: MenuImage[] }) {
 							src={image.src}
 							alt={image.alt}
 							fill
+							priority
 							className="object-cover object-top transition-all group-hover:scale-105"
 							sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
 						/>
