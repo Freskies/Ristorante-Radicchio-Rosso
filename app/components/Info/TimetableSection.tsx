@@ -27,7 +27,8 @@ export default function TimetableSection ({ timetables }: { timetables: Timetabl
 		<div>
 			<button
 				onClick={() => setIsOpen(!isOpen)}
-				className="cursor-pointer list-none text-accent font-semibold flex items-center gap-2 focus:outline-none w-full"
+				className="cursor-pointer list-none text-accent font-semibold flex items-center gap-2
+				focus:outline-none w-full"
 			>
 				<span>Vedi orari settimanali</span>
 				<svg
@@ -40,7 +41,9 @@ export default function TimetableSection ({ timetables }: { timetables: Timetabl
 				</svg>
 			</button>
 
-			<div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}>
+			<div
+				className={`grid transition-all duration-300 ease-in-out
+				${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}>
 				<div className="min-h-0 overflow-hidden space-y-2 text-zinc-600">
 					{timetables.map((t) => (
 						<p key={t.day}

@@ -16,7 +16,7 @@ This is a one-page website for the **Radicchio Rosso** Restaurant & Pizzeria in 
 - **Menu**: Grid display of the restaurant's menu images.
 - **Gallery**: Mosaic-style gallery of the restaurant and its dishes.
 - **About Section**: Detailed history and description of the restaurant.
-- **Info & Timetables**: 
+- **Info & Timetables**:
     - Real-time contact information.
     - Dynamic timetable displaying today's hours prominently.
     - 8-hour revalidation logic for timetable data (simulated).
@@ -62,7 +62,3 @@ public/
    npm run build
    ```
 
-## Author
-
-- Design by: Giacchini Valerio
-- Developed for: Radicchio Rosso Restaurant

@@ -1,8 +1,11 @@
 import Image from 'next/image';
 
+const logo_size = 50;
+
 export default function Footer () {
 	const currentYear = new Date().getFullYear();
 
+	// noinspection LongLine
 	const socials = [
 		{
 			name: 'Facebook',
@@ -42,13 +45,12 @@ export default function Footer () {
 			<div className="flex flex-col md:flex-row justify-between items-center gap-8">
 				<div className="flex items-center gap-4">
 					<div className="relative p-2 flex items-center justify-center">
-						{/* Faded white/light gray background circle */}
 						<div className="absolute inset-1.5 bg-white/60 rounded-full blur-sm"/>
 						<Image
 							src="/radicchio-rosso-logo.png"
 							alt="Radicchio Rosso"
-							width={50}
-							height={50}
+							width={logo_size}
+							height={logo_size}
 							className="relative z-10"
 						/>
 					</div>

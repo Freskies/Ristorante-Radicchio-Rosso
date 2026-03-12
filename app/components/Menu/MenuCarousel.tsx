@@ -18,10 +18,11 @@ export default function MenuCarousel ({ images }: { images: MenuImage[] }) {
 			{images.map((image, i) => (
 				<div
 					key={i}
-					className="group relative overflow-hidden rounded-xl shadow-lg bg-white transition-transform hover:-translate-y-2 cursor-pointer"
+					className="group relative overflow-hidden rounded-xl shadow-lg bg-white transition-transform
+					hover:-translate-y-2 cursor-pointer"
 					onClick={() => setIndex(i)}
 				>
-					<div className="relative aspect-[3/4] w-full">
+					<div className="relative aspect-3/4 w-full">
 						<Image
 							src={image.src}
 							alt={image.alt}
@@ -34,7 +35,8 @@ export default function MenuCarousel ({ images }: { images: MenuImage[] }) {
 						className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors
 						flex items-center justify-center">
 						<div className="opacity-0 group-hover:opacity-100 transition-opacity">
-							<button className="bg-white text-zinc-900 px-4 py-2 rounded-full font-semibold pointer-events-none">
+							<button
+								className="bg-white text-zinc-900 px-4 py-2 rounded-full font-semibold pointer-events-none">
 								Ingrandisci
 							</button>
 						</div>

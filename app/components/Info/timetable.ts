@@ -1,6 +1,5 @@
 // Simulation of a fetch that revalidates every 8 hours (28,800 seconds)
-// In a real application, this could be a call to a Google Places API
-// with Next.js revalidation: fetch(url, { next: { revalidate: 28800 } })
+// I already prepared everything to use Google Places API in the future
 
 export type Timetable = {
 	day: string;

@@ -12,8 +12,10 @@ export default async function Info () {
 
 	// Google Maps embed URL
 	const mapUrl = "https://maps.app.goo.gl/R1RwqxAA4YgiewvE6";
+	// noinspection LongLine
 	const mapUrlEmbed = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2850.1380222001953!2d12.227966276660235!3d44.409813403167405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477df97bb5e87bab%3A0xaa7894b37855ad07!2sRadicchio%20Rosso%20Ristorante%20Pizzeria!5e0!3m2!1sen!2sit!4v1773308547952!5m2!1sen!2sit`;
 
+	// noinspection LongLine
 	return <section id="info" className="py-24 bg-zinc-50">
 		<div className="container mx-auto px-4">
 			<h2

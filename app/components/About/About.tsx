@@ -1,5 +1,8 @@
 import Image from 'next/image';
 
+const hero_width = 600;
+const hero_height = 800;
+
 export default function About () {
 	return <section id="chi-siamo" className="py-24 bg-zinc-900 text-white overflow-hidden">
 		<div className="container mx-auto px-4">
@@ -9,14 +12,14 @@ export default function About () {
 						<Image
 							src="/gallery/34.jpg"
 							alt="Ristorante Radicchio Rosso Esterno"
-							width={600}
-							height={800}
+							width={hero_width}
+							height={hero_height}
 							className="w-full h-auto object-cover"
 						/>
 					</div>
 					{/* Decorative element */}
 					<div className="absolute -bottom-10 -right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl z-0"></div>
-					<div className="absolute -top-10 -left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-0"></div>
+					<div className="absolute -top-10 -left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl z-0"></div>
 				</div>
 
 				<div className="lg:w-1/2">
