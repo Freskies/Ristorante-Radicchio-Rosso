@@ -1,10 +1,23 @@
 'use client';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Timetable } from './timetable';
+
+const DAYS_IT = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
 
 export default function TimetableSection ({ timetables }: { timetables: Timetable[] }) {
 	const [isOpen, setIsOpen] = useState(false);
-	const currentTimetables = timetables;
+
+	const currentTimetables = useMemo(() => {
+		const todayIndex = new Date().getDay();
+		const todayName = DAYS_IT[todayIndex];
+
+		return timetables.map(t => ({
+			...t,
+			isToday: t.day === todayName,
+		}));
+	}, [timetables]);
+
+	const todayTimetable = currentTimetables.find(t => t.isToday);
 
 	return <div className="bg-white p-8 rounded-2xl shadow-md">
 		<h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -18,8 +31,8 @@ export default function TimetableSection ({ timetables }: { timetables: Timetabl
 		{/* Today highlighted */}
 		<div className="bg-accent/5 p-4 rounded-xl border border-accent/10 mb-6">
 			<p className="text-accent font-bold flex justify-between">
-				<span>Oggi ({currentTimetables.find(t => t.isToday)?.day}):</span>
-				<span>{currentTimetables.find(t => t.isToday)?.hours}</span>
+				<span>Oggi ({todayTimetable?.day}):</span>
+				<span>{todayTimetable?.hours}</span>
 			</p>
 		</div>
 
