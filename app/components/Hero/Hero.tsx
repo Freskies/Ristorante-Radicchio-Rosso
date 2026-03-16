@@ -1,6 +1,9 @@
+'use client';
 import Image from 'next/image';
 
-export default function Hero () {
+const quality = 60;
+
+export default function Hero ({ openMenuAction }: { openMenuAction: () => void }) {
 	// noinspection HtmlUnknownAnchorTarget,LongLine
 	return <section
 		className="relative min-h-125 sm:min-h-150 h-dvh w-full flex items-center justify-center overflow-hidden pt-12 sm:pt-20">
@@ -12,6 +15,7 @@ export default function Hero () {
 				fill
 				className="object-cover brightness-[0.4]"
 				priority
+				quality={quality}
 			/>
 		</div>
 
@@ -25,26 +29,14 @@ export default function Hero () {
 				Tradizione e Innovazione tra mare e campagna
 			</p>
 
-			{/*Promotional Box / Special Content Area */}
-			{/*<div*/}
-			{/*	className="bg-accent/80 backdrop-blur-md p-4 md:p-6 rounded-lg max-w-2xl mx-auto border*/}
-			{/*	border-accent/50 shadow-2xl text-left">*/}
-			{/*	<h2 className="text-xl md:text-2xl font-bold mb-2 uppercase tracking-widest">In Evidenza</h2>*/}
-			{/*	<p className="text-base md:text-lg">*/}
-			{/*		Dal 2022, l&apos;unico ristorante a Ravenna a proporre la <span*/}
-			{/*		className="font-bold underline">Scrocchiarella</span>:*/}
-			{/*		innovativa, croccante e altamente digeribile.*/}
-			{/*	</p>*/}
-			{/*</div>*/}
-
 			<div className="mt-8 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-				<a
-					href="#menu"
-					className="inline-block bg-white text-accent px-8 py-3 rounded-full font-bold uppercase
+				<button
+					onClick={openMenuAction}
+					className="cursor-pointer inline-block bg-white text-accent px-8 py-3 rounded-full font-bold uppercase
 					transition-all hover:bg-zinc-200 active:scale-95 shadow-lg"
 				>
 					Scopri il Menù
-				</a>
+				</button>
 				<a
 					href="#info"
 					className="inline-block bg-white text-accent px-8 py-3 rounded-full font-bold uppercase

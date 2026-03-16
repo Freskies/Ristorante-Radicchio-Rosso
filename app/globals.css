@@ -13,6 +13,15 @@
 	--color-accent: #6E0708;
 }
 
+@utility scrollbar-hide {
+	@media (pointer: coarse) {
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
 html {
 	scroll-behavior: smooth;
 }

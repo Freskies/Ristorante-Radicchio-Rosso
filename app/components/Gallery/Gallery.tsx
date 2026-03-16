@@ -9,6 +9,7 @@ const allImages = Array.from({ length: 21 }, (_, i) => ({
 
 const lg = 1024;
 const md = 768;
+const quality = 60;
 
 function getImagesByWidth (width: number) {
 	const columns = width >= lg ? 4 : width >= md ? 3 : 2;
@@ -67,6 +68,8 @@ export default function Gallery () {
 							fill
 							className="object-cover transition-transform duration-500 group-hover:scale-110"
 							sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+							priority={image.src === '/gallery/27.jpg'}
+							quality={quality}
 						/>
 						<div
 							className="absolute inset-0 bg-accent/0 group-hover:bg-accent/20 transition-all duration-300"/>

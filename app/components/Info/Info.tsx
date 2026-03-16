@@ -1,8 +1,16 @@
-import { getTimetables } from './timetable';
+'use client';
+
+import { useEffect, useState } from 'react';
+import { getTimetables, Timetable } from './timetable';
 import TimetableSection from './TimetableSection';
 
-export default async function Info () {
-	const timetables = await getTimetables();
+export default function Info () {
+	const [timetables, setTimetables] = useState<Timetable[]>([]);
+	const [showMap, setShowMap] = useState(false);
+
+	useEffect(() => {
+		getTimetables().then(setTimetables);
+	}, []);
 
 	// Address and contacts
 	const telephone = "0544 432288";
@@ -61,17 +69,45 @@ export default async function Info () {
 				</div>
 
 				{/* Right side: Map */}
-				<div className="h-100 lg:h-full min-h-100 bg-white p-2 rounded-2xl shadow-md">
-					<iframe
-						src={mapUrlEmbed}
-						width="100%"
-						height="100%"
-						style={{ border: 0 }}
-						allowFullScreen={true}
-						loading="lazy"
-						referrerPolicy="no-referrer-when-downgrade"
-						className="rounded-xl"
-					/>
+				<div
+					className="h-100 lg:h-full min-h-100 bg-white p-2 rounded-2xl shadow-md relative group overflow-hidden">
+					{showMap ? (
+						<iframe
+							title="Mappa del Ristorante Radicchio Rosso"
+							src={mapUrlEmbed}
+							width="100%"
+							height="100%"
+							style={{ border: 0 }}
+							allowFullScreen={true}
+							loading="lazy"
+							referrerPolicy="no-referrer-when-downgrade"
+							className="rounded-xl"
+						/>
+					) : (
+						<div
+							className="w-full h-full bg-zinc-100 rounded-xl flex flex-col items-center justify-center text-center p-8 transition-colors hover:bg-zinc-200 cursor-pointer"
+							onClick={() => setShowMap(true)}
+						>
+							<div
+								className="w-16 h-16 bg-accent/10 text-accent rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+								<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+									      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+									      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+								</svg>
+							</div>
+							<h4 className="text-xl font-bold text-zinc-900 mb-2">Visualizza la Mappa</h4>
+							<p className="text-zinc-600 mb-6 max-w-xs">
+								Cliccando caricherai la mappa interattiva di Google Maps.
+							</p>
+							<button
+								className="bg-accent text-white px-6 py-2 rounded-full font-bold uppercase text-sm hover:brightness-110 transition-all shadow-md"
+							>
+								Carica Mappa
+							</button>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
