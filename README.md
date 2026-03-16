@@ -46,12 +46,12 @@ public/
    npm run build
    ```
 
-## Key Details That Matter
+## Key Details
 
 This project goes beyond just a landing page, focusing on professional-grade quality in areas often overlooked:
 
 - **Accessibility First**: Fully navigable via keyboard. Implements ARIA roles, focus trapping in modals, and logical tab orders to ensure everyone, including assistive technology users, can access the menu and info.
 - **Hardened Security**: A robust Content Security Policy (CSP) with Trusted Types, COOP, and XFO headers protects against XSS and clickjacking.
-- **Performance & UX**: Optimized image delivery with Next.js, smooth animations, and smart timetable logic that highlights the current day's hours automatically.
+- **Performance & UX**: Optimized image delivery with Next.js, non-blocking loading with pulsing placeholders for the gallery, smooth animations, and smart timetable logic.
 - **Privacy Conscious**: Strict Referrer-Policy and Permissions-Policy to minimize data exposure and respect browser privacy.
 

@@ -1,15 +1,18 @@
 'use client';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const quality = 60;
 
 export default function Hero ({ openMenuAction }: { openMenuAction: () => void }) {
+	const [isLoaded, setIsLoaded] = useState(false);
+
 	// noinspection HtmlUnknownAnchorTarget,LongLine
 	return <section
 		aria-label="Introduzione"
 		className="relative min-h-125 sm:min-h-150 h-dvh w-full flex items-center justify-center overflow-hidden pt-12 sm:pt-20">
 		{/* Background Image/Promotion */}
-		<div className="absolute inset-0 z-0">
+		<div className={`absolute inset-0 z-0 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0 bg-zinc-900'}`}>
 			<Image
 				src="/hero_landscape.jpg" // Using one of the gallery photos as a placeholder background
 				alt="Radicchio Rosso Atmosfera"
@@ -17,6 +20,7 @@ export default function Hero ({ openMenuAction }: { openMenuAction: () => void }
 				className="object-cover brightness-[0.4]"
 				priority
 				quality={quality}
+				onLoad={() => setIsLoaded(true)}
 			/>
 		</div>
 

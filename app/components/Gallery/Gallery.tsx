@@ -30,6 +30,7 @@ function getImagesByWidth (width: number) {
 export default function Gallery () {
 	const [visibleImages, setVisibleImages] = useState(allImages);
 	const [mounted, setMounted] = useState(false);
+	const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
 	useEffect(() => {
 		function onResize () {
@@ -61,15 +62,18 @@ export default function Gallery () {
 						key={index}
 						className={`relative overflow-hidden rounded-lg shadow-md group ${
 							index % 7 === 0 ? 'md:col-span-2 md:row-span-2 aspect-square md:aspect-auto' : 'aspect-square'
-						}`}
+						} ${!loadedImages[index] ? 'bg-zinc-200 animate-pulse' : 'bg-transparent'}`}
 					>
 						<Image
 							src={image.src}
 							alt={image.alt}
 							fill
-							className="object-cover transition-transform duration-500 group-hover:scale-110"
+							className={`object-cover transition-all duration-500 group-hover:scale-110 ${
+								loadedImages[index] ? 'opacity-100' : 'opacity-0'
+							}`}
 							sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
 							priority={image.src === '/gallery/27.jpg'}
+							onLoad={() => setLoadedImages(prev => ({ ...prev, [index]: true }))}
 							quality={quality}
 						/>
 						<div
