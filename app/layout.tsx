@@ -39,6 +39,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout ({ children, }: Readonly<{ children: React.ReactNode; }>) {
 	return <html lang="it">
+	<head>
+		<script
+			dangerouslySetInnerHTML={{
+				__html: `
+					if (window.trustedTypes && window.trustedTypes.createPolicy) {
+						window.trustedTypes.createPolicy('default', {
+							createHTML: (string) => string,
+							createScriptURL: (string) => string,
+							createScript: (string) => string,
+						});
+					}
+				`,
+			}}
+		/>
+	</head>
 	<body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`} suppressHydrationWarning>
 	{children}
 	</body>

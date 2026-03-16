@@ -40,12 +40,15 @@ export default function TimetableSection ({ timetables }: { timetables: Timetabl
 		<div>
 			<button
 				onClick={() => setIsOpen(!isOpen)}
+				aria-expanded={isOpen}
+				aria-controls="weekly-timetables"
 				className="cursor-pointer list-none text-accent font-semibold flex items-center gap-2
 				focus:outline-none w-full"
 			>
 				<span>Vedi orari settimanali</span>
 				<svg
 					className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+					aria-hidden="true"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
@@ -55,6 +58,8 @@ export default function TimetableSection ({ timetables }: { timetables: Timetabl
 			</button>
 
 			<div
+				id="weekly-timetables"
+				aria-hidden={!isOpen}
 				className={`grid transition-all duration-300 ease-in-out
 				${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}>
 				<div className="min-h-0 overflow-hidden space-y-2 text-zinc-600">

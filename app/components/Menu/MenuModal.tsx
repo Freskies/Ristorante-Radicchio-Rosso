@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { menuData } from './menu-data';
 
 interface MenuModalProps {
@@ -27,6 +27,7 @@ const MenuIcon = ({ type, active }: { type: string; active: boolean }) => {
 	return (
 		<div
 			className={`w-8 h-8 shrink-0 ${color}`}
+			aria-hidden="true"
 			style={{
 				maskImage: `url(/menu_tabs/${fileName})`,
 				maskRepeat: 'no-repeat',
@@ -43,14 +44,55 @@ const MenuIcon = ({ type, active }: { type: string; active: boolean }) => {
 
 export default function MenuModal ({ isOpen, onClose }: MenuModalProps) {
 	const [activeTab, setActiveTab] = useState(menuData[0].id);
+	const modalRef = useRef<HTMLDivElement>(null);
+	const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-	// Lock scroll when modal is open
+	// Lock scroll and handle focus when modal is open
 	useEffect(() => {
 		const body = document.querySelector('body');
 		if (body === null) return () => {};
-		body.style.overflow = isOpen ? 'hidden' : 'unset';
-		return () => { body.style.overflow = 'unset'; };
-	}, [isOpen]);
+
+		if (isOpen) {
+			body.style.overflow = 'hidden';
+			// Focus the close button when the modal opens
+			closeButtonRef.current?.focus();
+
+			// Trap focus within the modal
+			const handleTabKey = (e: KeyboardEvent) => {
+				if (e.key === 'Tab' && modalRef.current) {
+					const focusableElements = modalRef.current.querySelectorAll(
+						'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+					);
+					const firstElement = focusableElements[0] as HTMLElement;
+					const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+					if (e.shiftKey) {
+						if (document.activeElement === firstElement) {
+							lastElement.focus();
+							e.preventDefault();
+						}
+					} else {
+						if (document.activeElement === lastElement) {
+							firstElement.focus();
+							e.preventDefault();
+						}
+					}
+				}
+				if (e.key === 'Escape') {
+					onClose();
+				}
+			};
+
+			window.addEventListener('keydown', handleTabKey);
+			return () => {
+				body.style.overflow = 'unset';
+				window.removeEventListener('keydown', handleTabKey);
+			};
+		} else {
+			body.style.overflow = 'unset';
+		}
+	}, [isOpen, onClose]);
+
 	if (!isOpen) return null;
 
 	const activeCategory = menuData.find(cat => cat.id === activeTab);
@@ -58,15 +100,21 @@ export default function MenuModal ({ isOpen, onClose }: MenuModalProps) {
 	// noinspection LongLine
 	return (
 		<div
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal-title"
 			onClick={onClose}
 			className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
 			<div
+				ref={modalRef}
 				onClick={(e) => e.stopPropagation()}
 				className="relative w-full max-w-4xl h-[90dvh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col">
 
 				{/* Close Button */}
 				<button
+					ref={closeButtonRef}
 					onClick={onClose}
+					aria-label="Chiudi menù"
 					className="absolute top-4 right-4 z-10 p-2 text-zinc-400 hover:text-zinc-600 transition-colors"
 				>
 					<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,16 +124,23 @@ export default function MenuModal ({ isOpen, onClose }: MenuModalProps) {
 
 				{/* Header */}
 				<div className="pt-8 px-8 pb-4 text-center">
-					<h2 className="text-3xl font-bold text-zinc-900">Il Nostro Menù</h2>
+					<h2 id="modal-title" className="text-3xl font-bold text-zinc-900">Il Nostro Menù</h2>
 				</div>
 
 				{/* Tabs */}
 				<div
 					className="flex overflow-x-auto scrollbar-hide border-b border-zinc-100 px-4">
-					<div className="flex mx-auto h-full">
+					<div
+						role="tablist"
+						aria-label="Categorie del menù"
+						className="flex mx-auto h-full">
 						{menuData.map((category) => (
 							<button
 								key={category.id}
+								id={`tab-${category.id}`}
+								role="tab"
+								aria-selected={activeTab === category.id}
+								aria-controls={`panel-${category.id}`}
 								onClick={() => setActiveTab(category.id)}
 								className={`flex flex-col items-center justify-center min-w-17.5 sm:min-w-20 py-3 sm:py-4 px-1 sm:px-2 transition-all border-b-2 shrink-0 h-full
 									${activeTab === category.id
@@ -103,7 +158,12 @@ export default function MenuModal ({ isOpen, onClose }: MenuModalProps) {
 				</div>
 
 				{/* Content */}
-				<div className="flex-1 overflow-y-auto p-8">
+				<div
+					id={`panel-${activeTab}`}
+					role="tabpanel"
+					aria-labelledby={`tab-${activeTab}`}
+					className="flex-1 overflow-y-auto p-8"
+				>
 					{activeCategory && (
 						<div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-300">
 							{activeCategory.sections.map((section, sIdx) => (

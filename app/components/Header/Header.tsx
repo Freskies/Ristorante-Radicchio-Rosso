@@ -27,7 +27,7 @@ export default function Header ({ openMenuAction }: { openMenuAction: () => void
 				<span className="ml-2 text-xl font-bold text-accent hidden sm:block">Radicchio Rosso</span>
 			</Link>
 
-			<nav className="hidden md:flex space-x-8">
+			<nav className="hidden md:flex space-x-8" aria-label="Navigazione principale">
 				{navItems.map((item) => (
 					item.onClick ? (
 						<button
@@ -50,7 +50,7 @@ export default function Header ({ openMenuAction }: { openMenuAction: () => void
 			</nav>
 
 			{/* Mobile Menu Trigger - simple for now, can be improved */}
-			<div className="md:hidden flex space-x-4">
+			<nav className="md:hidden flex space-x-4" aria-label="Navigazione mobile">
 				{navItems.slice(0, 2).map((item) => (
 					item.onClick ? (
 						<button
@@ -71,7 +71,7 @@ export default function Header ({ openMenuAction }: { openMenuAction: () => void
 					)
 				))}
 				<Link href="#info" className="text-zinc-700 text-sm font-medium">Info</Link>
-			</div>
+			</nav>
 		</div>
 	</header>;
 }

@@ -1,8 +1,8 @@
 export default function About () {
-	return <section id="chi-siamo" className="py-24 bg-white text-zinc-900 overflow-hidden text-center">
+	return <section id="chi-siamo" aria-labelledby="about-title" className="py-24 bg-white text-zinc-900 overflow-hidden text-center">
 		<div className="container mx-auto px-4 max-w-4xl">
 			<div>
-				<h2 className="text-accent font-bold tracking-widest uppercase mb-4">Chi siamo</h2>
+				<h2 id="about-title" className="text-accent font-bold tracking-widest uppercase mb-4">Chi siamo</h2>
 				<h3 className="text-4xl md:text-5xl font-bold mb-8">Tradizione e Innovazione</h3>
 
 				<div className="space-y-6 text-zinc-600 text-lg leading-relaxed text-left max-w-3xl mx-auto">

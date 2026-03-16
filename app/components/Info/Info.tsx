@@ -24,9 +24,10 @@ export default function Info () {
 	const mapUrlEmbed = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2850.1380222001953!2d12.227966276660235!3d44.409813403167405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477df97bb5e87bab%3A0xaa7894b37855ad07!2sRadicchio%20Rosso%20Ristorante%20Pizzeria!5e0!3m2!1sen!2sit!4v1773308547952!5m2!1sen!2sit`;
 
 	// noinspection LongLine
-	return <section id="info" className="py-24 bg-zinc-50">
+	return <section id="info" aria-labelledby="info-title" className="py-24 bg-zinc-50">
 		<div className="container mx-auto px-4">
 			<h2
+				id="info-title"
 				className="text-4xl md:text-5xl font-bold mb-16 text-center text-zinc-900 border-b-4
 				border-accent inline-block mx-auto">
 				Info & Orari
@@ -84,9 +85,10 @@ export default function Info () {
 							className="rounded-xl"
 						/>
 					) : (
-						<div
+						<button
 							className="w-full h-full bg-zinc-100 rounded-xl flex flex-col items-center justify-center text-center p-8 transition-colors hover:bg-zinc-200 cursor-pointer"
 							onClick={() => setShowMap(true)}
+							aria-label="Carica la mappa interattiva"
 						>
 							<div
 								className="w-16 h-16 bg-accent/10 text-accent rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -101,12 +103,12 @@ export default function Info () {
 							<p className="text-zinc-600 mb-6 max-w-xs">
 								Cliccando caricherai la mappa interattiva di Google Maps.
 							</p>
-							<button
+							<span
 								className="bg-accent text-white px-6 py-2 rounded-full font-bold uppercase text-sm hover:brightness-110 transition-all shadow-md"
 							>
 								Carica Mappa
-							</button>
-						</div>
+							</span>
+						</button>
 					)}
 				</div>
 			</div>
