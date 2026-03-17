@@ -9,6 +9,7 @@ export default function Hero ({ openMenuAction }: { openMenuAction: () => void }
 
 	// noinspection HtmlUnknownAnchorTarget,LongLine
 	return <section
+		id="hero"
 		aria-label="Introduzione"
 		className="relative min-h-125 sm:min-h-150 h-dvh w-full flex items-center justify-center overflow-hidden pt-12 sm:pt-20">
 		{/* Background Image/Promotion */}

@@ -45,7 +45,15 @@ const MenuIcon = ({ type, active }: { type: string; active: boolean }) => {
 export default function MenuModal ({ isOpen, onClose }: MenuModalProps) {
 	const [activeTab, setActiveTab] = useState(menuData[0].id);
 	const modalRef = useRef<HTMLDivElement>(null);
+	const contentRef = useRef<HTMLDivElement>(null);
 	const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+	// Reset scroll when active tab changes
+	useEffect(() => {
+		if (contentRef.current) {
+			contentRef.current.scrollTop = 0;
+		}
+	}, [activeTab]);
 
 	// Lock scroll and handle focus when modal is open
 	useEffect(() => {
@@ -159,6 +167,7 @@ export default function MenuModal ({ isOpen, onClose }: MenuModalProps) {
 
 				{/* Content */}
 				<div
+					ref={contentRef}
 					id={`panel-${activeTab}`}
 					role="tabpanel"
 					aria-labelledby={`tab-${activeTab}`}

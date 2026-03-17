@@ -21,7 +21,7 @@ export default function Home () {
 	const openMenuAction = () => setIsMenuOpen(true);
 
 	return <div className="min-h-dvh bg-white">
-		<Header openMenuAction={openMenuAction}/>
+		<Header/>
 		<main>
 			<Hero openMenuAction={openMenuAction}/>
 			<About/>

@@ -45,12 +45,12 @@ export default function Gallery () {
 		return () => window.removeEventListener('resize', onResize);
 	}, []);
 
-	return <section id="gallery" aria-labelledby="gallery-title" className="py-24 bg-white">
+	return <section id="gallery" aria-labelledby="gallery-title" className="pb-24 bg-white">
 		<div className="container mx-auto px-4">
 			<div className="text-center mb-16">
 				<h2
 					id="gallery-title"
-					className="text-4xl md:text-5xl font-bold mb-4 text-zinc-900 border-b-4 border-accent inline-block">
+					className="pt-2 text-4xl md:text-5xl font-bold mb-4 text-zinc-900 border-b-4 border-accent inline-block">
 					Gallery
 				</h2>
 				<p className="text-zinc-600">Un viaggio visivo attraverso i nostri piatti e la nostra location.</p>

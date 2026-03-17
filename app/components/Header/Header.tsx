@@ -4,10 +4,9 @@ import Link from 'next/link';
 
 const logo_size = 60;
 
-export default function Header ({ openMenuAction }: { openMenuAction: () => void }) {
+export default function Header () {
 	const navItems = [
 		{ name: 'Chi Siamo', href: '#chi-siamo' },
-		{ name: 'Menu', onClick: openMenuAction },
 		{ name: 'Gallery', href: '#gallery' },
 		{ name: 'Info', href: '#info' },
 	];
@@ -15,7 +14,7 @@ export default function Header ({ openMenuAction }: { openMenuAction: () => void
 	// noinspection HtmlUnknownAnchorTarget
 	return <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
 		<div className="container mx-auto px-4 h-20 flex items-center justify-between">
-			<Link href="/" className="flex items-center">
+			<Link href="#hero" className="flex items-center">
 				<Image
 					src="/radicchio-rosso-logo.png"
 					alt="Radicchio Rosso Logo"
@@ -51,7 +50,7 @@ export default function Header ({ openMenuAction }: { openMenuAction: () => void
 
 			{/* Mobile Menu Trigger - simple for now, can be improved */}
 			<nav className="md:hidden flex space-x-4" aria-label="Navigazione mobile">
-				{navItems.slice(0, 2).map((item) => (
+				{navItems.map((item) => (
 					item.onClick ? (
 						<button
 							key={item.name}
@@ -70,7 +69,6 @@ export default function Header ({ openMenuAction }: { openMenuAction: () => void
 						</Link>
 					)
 				))}
-				<Link href="#info" className="text-zinc-700 text-sm font-medium">Info</Link>
 			</nav>
 		</div>
 	</header>;
