@@ -62,7 +62,7 @@ export default function Gallery () {
 						key={index}
 						className={`relative overflow-hidden rounded-lg shadow-md group ${
 							index % 7 === 0 ? 'md:col-span-2 md:row-span-2 aspect-square md:aspect-auto' : 'aspect-square'
-						} ${!loadedImages[index] ? 'bg-zinc-200 animate-pulse' : 'bg-transparent'}`}
+						} ${(loadedImages[index] ? 'bg-transparent' : 'bg-zinc-200 animate-pulse')}`}
 					>
 						<Image
 							src={image.src}

@@ -5,7 +5,13 @@ import Link from 'next/link';
 const logo_size = 60;
 
 export default function Header () {
-	const navItems = [
+	interface NavItem {
+		name: string;
+		href?: string;
+		onClick?: () => void;
+	}
+
+	const navItems: NavItem[] = [
 		{ name: 'Chi Siamo', href: '#chi-siamo' },
 		{ name: 'Gallery', href: '#gallery' },
 		{ name: 'Info', href: '#info' },
