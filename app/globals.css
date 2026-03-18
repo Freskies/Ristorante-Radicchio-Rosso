@@ -3,13 +3,16 @@
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
+	/* Reference Next.js font variables defined in layout.tsx */
+	--font-sans: var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif);
+	--font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
 }
 
 @theme inline {
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
+	--font-sans: var(--font-sans);
+	--font-mono: var(--font-mono);
 	--color-accent: #6E0708;
 }
 
@@ -30,4 +33,11 @@ html {
 body {
 	background: var(--background);
 	color: var(--foreground);
+}
+
+/* phone and minor */
+@media screen and (max-width: 40em) {
+	div[role="dialog"] {
+		font-size: 80%;
+	}
 }

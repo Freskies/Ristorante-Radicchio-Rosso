@@ -45,7 +45,7 @@ export default function Gallery () {
 		return () => window.removeEventListener('resize', onResize);
 	}, []);
 
-	return <section id="gallery" aria-labelledby="gallery-title" className="pb-24 bg-white">
+	return <section id="gallery" aria-labelledby="gallery-title" className="pt-24 bg-white">
 		<div className="container mx-auto px-4">
 			<div className="text-center mb-16">
 				<h2
