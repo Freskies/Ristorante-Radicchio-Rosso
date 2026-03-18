@@ -1,6 +1,4 @@
 'use server';
-// Simulation of a fetch that revalidates every 8 hours (28,800 seconds)
-// I already prepared everything to use Google Places API in the future
 
 const PLACE_ID = "ChIJq3votXv5fUcRB61VeLOUeKo";
 const API_KEY = process.env.GOOGLE_PLACES_API_KEY;
