@@ -60,7 +60,7 @@ export default function Gallery () {
 				{mounted && visibleImages.map((image, index) => (
 					<div
 						key={index}
-						className={`relative overflow-hidden rounded-lg shadow-md group ${
+						className={`relative overflow-hidden rounded-lg shadow-md group cursor-pointer ${
 							index % 7 === 0 ? 'md:col-span-2 md:row-span-2 aspect-square md:aspect-auto' : 'aspect-square'
 						} ${(loadedImages[index] ? 'bg-transparent' : 'bg-zinc-200 animate-pulse')}`}
 					>

@@ -48,20 +48,20 @@ export default function Info () {
 							<p>
 								<span className="font-semibold">Tel:</span>{" "}
 								<a href={`tel:${telephone.replace(/\s/g, '')}`}
-								   className="hover:text-accent underline">{telephone}</a>
+								   className="hover:text-accent underline cursor-pointer">{telephone}</a>
 							</p>
 							<p>
 								<span className="font-semibold">Cell:</span>{" "}
 								<a href={`tel:${mobilePhone.replace(/\s/g, '')}`}
-								   className="hover:text-accent underline">{mobilePhone}</a>
+								   className="hover:text-accent underline cursor-pointer">{mobilePhone}</a>
 							</p>
 							<p>
 								<span className="font-semibold">Email:</span>{" "}
-								<a href={`mailto:${email}`} className="hover:text-accent underline">{email}</a>
+								<a href={`mailto:${email}`} className="hover:text-accent underline cursor-pointer">{email}</a>
 							</p>
 							<p>
 								<span className="font-semibold">Dove:</span>{" "}
-								<a href={mapUrl} target="_blank" className="hover:text-accent underline">{address}</a>
+								<a href={mapUrl} target="_blank" className="hover:text-accent underline cursor-pointer">{address}</a>
 							</p>
 						</div>
 					</div>

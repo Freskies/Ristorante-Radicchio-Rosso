@@ -123,7 +123,7 @@ export default function MenuModal ({ isOpen, onClose }: MenuModalProps) {
 					ref={closeButtonRef}
 					onClick={onClose}
 					aria-label="Chiudi menù"
-					className="absolute top-4 right-4 z-10 p-2 text-zinc-400 hover:text-zinc-600 transition-colors"
+					className="absolute top-4 right-4 z-10 p-2 text-zinc-400 hover:text-zinc-600 transition-colors cursor-pointer"
 				>
 					<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
@@ -150,7 +150,7 @@ export default function MenuModal ({ isOpen, onClose }: MenuModalProps) {
 								aria-selected={activeTab === category.id}
 								aria-controls={`panel-${category.id}`}
 								onClick={() => setActiveTab(category.id)}
-								className={`flex flex-col items-center justify-center min-w-17.5 sm:min-w-20 py-3 sm:py-4 px-1 sm:px-2 transition-all border-b-2 shrink-0 h-full
+								className={`flex flex-col items-center justify-center min-w-17.5 sm:min-w-20 py-3 sm:py-4 px-1 sm:px-2 transition-all border-b-2 shrink-0 h-full cursor-pointer
 									${activeTab === category.id
 									? 'border-transparent'
 									: 'border-transparent text-zinc-400 hover:text-zinc-600 hover:border-zinc-200'}`}

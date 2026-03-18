@@ -20,7 +20,7 @@ export default function Header () {
 	// noinspection HtmlUnknownAnchorTarget
 	return <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
 		<div className="container mx-auto px-4 h-20 flex items-center justify-between">
-			<Link href="#hero" className="flex items-center">
+			<Link href="#hero" className="flex items-center cursor-pointer">
 				<Image
 					src="/radicchio-rosso-logo.png"
 					alt="Radicchio Rosso Logo"
@@ -46,7 +46,7 @@ export default function Header () {
 						<Link
 							key={item.name}
 							href={item.href || '#'}
-							className="text-zinc-700 hover:text-accent font-medium transition-colors"
+							className="text-zinc-700 hover:text-accent font-medium transition-colors cursor-pointer"
 						>
 							{item.name}
 						</Link>
@@ -69,7 +69,7 @@ export default function Header () {
 						<Link
 							key={item.name}
 							href={item.href || '#'}
-							className="text-zinc-700 text-sm font-medium"
+							className="text-zinc-700 text-sm font-medium cursor-pointer"
 						>
 							{item.name}
 						</Link>
