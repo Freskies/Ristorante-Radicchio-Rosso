@@ -2,7 +2,7 @@
 import { useMemo, useState } from 'react';
 import { Timetable } from './timetable';
 
-const DAYS_IT = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
+const DAYS_IT = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'];
 
 export default function TimetableSection ({ timetables }: { timetables: Timetable[] }) {
 	const [isOpen, setIsOpen] = useState(false);

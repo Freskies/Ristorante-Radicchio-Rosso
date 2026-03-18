@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
+import { scrollToSection } from '@/app/utils/scroll';
 
 const quality = 60;
 
@@ -47,6 +48,7 @@ export default function Hero ({ openMenuAction }: { openMenuAction: () => void }
 					href="#info"
 					className="inline-block bg-white text-accent px-8 py-3 rounded-full font-bold uppercase
 					transition-all hover:bg-zinc-200 active:scale-95 shadow-lg cursor-pointer"
+					onClick={(e) => scrollToSection(e, 'info')}
 				>
 					Prenota Ora
 				</a>
@@ -55,7 +57,12 @@ export default function Hero ({ openMenuAction }: { openMenuAction: () => void }
 		</div>
 
 		<div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-			<a href="#chi-siamo" aria-label="Scorri verso il basso" className="cursor-pointer">
+			<a 
+				href="#chi-siamo" 
+				aria-label="Scorri verso il basso" 
+				className="cursor-pointer"
+				onClick={(e) => scrollToSection(e, 'chi-siamo')}
+			>
 				<svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
 				</svg>

@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { scrollToSection } from '@/app/utils/scroll';
 
 const logo_size = 50;
 
@@ -40,21 +42,25 @@ export default function Footer () {
 		}
 	];
 
+	// noinspection HtmlUnknownAnchorTarget
 	return <footer className="bg-zinc-900 text-zinc-400 py-12 border-t border-zinc-800">
 		<div className="container mx-auto px-4">
 			<div className="flex flex-col md:flex-row justify-between items-center gap-8">
 				<div className="flex items-center gap-4">
-					<div className="relative p-2 flex items-center justify-center">
+					<Link
+						href="#hero"
+						className="relative p-2 flex items-center justify-center cursor-pointer"
+						onClick={(e) => scrollToSection(e, 'hero')}
+					>
 						<div className="absolute inset-1.5 bg-white/60 rounded-full blur-sm"/>
 						<Image
 							src="/radicchio-rosso-logo.png"
 							alt="Radicchio Rosso"
 							width={logo_size}
 							height={logo_size}
-							className="relative z-10"
-							style={{ height: 'auto', width: 'auto' }}
+							className="relative z-10 w-12.5 h-10.6"
 						/>
-					</div>
+					</Link>
 					<div>
 						<p className="text-white font-bold">Radicchio Rosso</p>
 						<p className="text-sm">© {currentYear} | tutti i diritti riservati.</p>
