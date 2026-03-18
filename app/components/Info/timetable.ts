@@ -11,7 +11,7 @@ export type Timetable = {
 const base_timetables = [
 	{ day: 'lunedì', hours: '12:00–14:30, 19:00–22:30' },
 	{ day: 'martedì', hours: '12:00–14:30, 19:00–22:30' },
-	{ day: 'mercoledì', hours: '19:00–22:30, VA O NON VA ZIO PERA' },
+	{ day: 'mercoledì', hours: '19:00–22:30' },
 	{ day: 'giovedì', hours: '12:00–14:30, 19:00–22:30' },
 	{ day: 'venerdì', hours: '12:00–14:30, 19:00–22:30' },
 	{ day: 'sabato', hours: '12:00–14:30, 19:00–23:00' },
