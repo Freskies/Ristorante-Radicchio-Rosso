@@ -61,7 +61,8 @@ export default function Info () {
 							</p>
 							<p>
 								<span className="font-semibold">Dove:</span>{" "}
-								<a href={mapUrl} target="_blank" className="hover:text-accent underline cursor-pointer">{address}</a>
+								<a href={mapUrl} target="_blank"
+								   className="hover:text-accent underline cursor-pointer">{address}</a>
 							</p>
 						</div>
 					</div>

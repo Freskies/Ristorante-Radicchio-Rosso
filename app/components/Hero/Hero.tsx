@@ -14,7 +14,8 @@ export default function Hero ({ openMenuAction }: { openMenuAction: () => void }
 		aria-label="Introduzione"
 		className="relative min-h-125 sm:min-h-150 h-dvh w-full flex items-center justify-center overflow-hidden pt-12 sm:pt-20">
 		{/* Background Image/Promotion */}
-		<div className={`absolute inset-0 z-0 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0 bg-zinc-900'}`}>
+		<div
+			className={`absolute inset-0 z-0 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0 bg-zinc-900'}`}>
 			<Image
 				src="/hero_landscape.jpg" // Using one of the gallery photos as a placeholder background
 				alt="Radicchio Rosso Atmosfera"
@@ -57,9 +58,9 @@ export default function Hero ({ openMenuAction }: { openMenuAction: () => void }
 		</div>
 
 		<div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-			<a 
-				href="#chi-siamo" 
-				aria-label="Scorri verso il basso" 
+			<a
+				href="#chi-siamo"
+				aria-label="Scorri verso il basso"
 				className="cursor-pointer"
 				onClick={(e) => scrollToSection(e, 'chi-siamo')}
 			>

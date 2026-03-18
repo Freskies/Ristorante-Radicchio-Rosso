@@ -59,8 +59,8 @@ export default function RootLayout ({ children, }: Readonly<{ children: React.Re
 	</head>
 	<body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`} suppressHydrationWarning>
 	{children}
-	<Analytics />
-	<SpeedInsights />
+	<Analytics/>
+	<SpeedInsights/>
 	</body>
 	</html>;
 }
